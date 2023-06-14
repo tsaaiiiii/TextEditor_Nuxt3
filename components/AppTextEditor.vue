@@ -150,7 +150,8 @@
       送出
     </button>
   </div>
-  <div class="output" v-html="newHtml" />
+
+  <div v-dompurify-html="newHtml" class="output" />
 </template>
 
 <script setup>
@@ -249,6 +250,7 @@ const addImage = () => {
 </script>
 
 <style>
+
 .textEditor{
   margin-bottom: 20px;
 }

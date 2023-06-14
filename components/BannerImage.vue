@@ -10,19 +10,34 @@
           image_search
         </span>
       </button>
+
       <input ref="fileInput" type="file" style="display: none;" @change="selectFile">
+    </div>
+    <div />
+    <button @click="outputImg">
+      送出圖片
+    </button>
+    <div class="banner_bg">
+      <div class="outputImg">
+        <div>
+          <img v-show="showImg" id="outputImg" :src="url" alt="" :style="outputStyle">
+        </div>
+      </div>
     </div>
   </div>
 </template>
 
 <script setup>
 const selectedImage = ref('')
+const url = ref()
 const fileInput = ref(null)
 const openFilePicker = () => {
   fileInput.value.click()
+  showImg.value = false
 }
 const selectFile = (event) => {
   const file = event.target.files[0]
+  url.value = URL.createObjectURL(event.target.files[0])
   if (file) {
     const reader = new FileReader()
     reader.onload = () => {
@@ -70,17 +85,30 @@ onUnmounted(() => {
   document.removeEventListener('mousemove', handleMouseMove)
   document.removeEventListener('mouseup', handleMouseUp)
 })
+
+const outputStyle = ref()
+
+const showImg = ref(false)
+const outputImg = () => {
+  showImg.value = true
+  if (imageContainer.value.style.cssText) {
+    outputStyle.value = imageContainer.value.style.cssText
+  } else {
+    outputStyle.value = 'width: 500px; height: 400px;'
+  }
+}
+
 </script>
 
 <style scope>
 .banner{
-width: 100%;
+    width: 100%;
     display: flex;
     justify-content: center;
-    margin-bottom: 50px;
+    margin-bottom: 30px;
 }
 .banner_bg{
- width: 800px;
+ width: 500px;
   height: 400px;
    background-color: #D3D3D3;
 
@@ -106,7 +134,7 @@ cursor: pointer;
 
 #resizable-image {
   width: 100%;
-  height: 100%;
+  max-height: 400px;
   pointer-events: none;
 }
 
@@ -118,5 +146,14 @@ cursor: pointer;
   bottom: 0;
   right: 0;
   cursor: se-resize;
+}
+.outputImg{
+  display: flex;
+
+}
+#outputImg{
+  width: 100%;
+  max-height: 400px;
+  pointer-events: none;
 }
 </style>
