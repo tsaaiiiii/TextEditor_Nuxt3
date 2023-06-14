@@ -20,7 +20,7 @@
     <div class="banner_bg">
       <div class="outputImg">
         <div>
-          <img v-show="showImg" id="outputImg" :src="url" alt="" :style="outputStyle">
+          <img v-show="showImg" id="outputImg" :src="selectedImage" alt="" :style="outputStyle">
         </div>
       </div>
     </div>
@@ -29,7 +29,7 @@
 
 <script setup>
 const selectedImage = ref('')
-const url = ref()
+
 const fileInput = ref(null)
 const openFilePicker = () => {
   fileInput.value.click()
@@ -37,15 +37,16 @@ const openFilePicker = () => {
 }
 const selectFile = (event) => {
   const file = event.target.files[0]
-  url.value = URL.createObjectURL(event.target.files[0])
   if (file) {
     const reader = new FileReader()
     reader.onload = () => {
       selectedImage.value = reader.result
     }
     reader.readAsDataURL(file)
+    // console.log(reader)
   }
 }
+
 onMounted(() => {
   resizeHandle.value.addEventListener('mousedown', handleMouseDown)
   document.addEventListener('mousemove', handleMouseMove)
