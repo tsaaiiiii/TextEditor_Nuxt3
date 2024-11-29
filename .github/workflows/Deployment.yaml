@@ -21,6 +21,7 @@ jobs:
         uses: pnpm/action-setup@v2
         with:
           version: 8.6.12  
+          #https://github.com/actions/setup-node/issues/530
 
       - name: Install PNPM
         run: npm i -g pnpm
@@ -40,7 +41,9 @@ jobs:
         env:
           DOC_ENV: production
           NODE_OPTIONS: --max-old-space-size=4096
-
+      # 安裝 rsync for act
+      - name: Install rsync
+        run: sudo apt-get update && sudo apt-get install -y rsync
       - name: Verify build
         run: ls -la .nuxt/dist
 
@@ -51,7 +54,9 @@ jobs:
           branch: gh-pages
           folder: .nuxt/dist
           force: true
-          commit-message: website deploy
+          commit-message: website deploy 
+          # The process ‘/usr/bin/git‘ failed with exit code 128  默認權限問題
+          # https://blog.csdn.net/weixin_42282187/article/details/124766382
 
 
       - name: Cleanup
