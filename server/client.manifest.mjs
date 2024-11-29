@@ -53,7 +53,7 @@ export default {
     "resourceType": "script",
     "module": true,
     "dynamicImports": [
-      "virtual:nuxt:/home/runner/work/TextEditor_Nuxt3/TextEditor_Nuxt3/.nuxt/error-component.mjs"
+      "virtual:nuxt:/Users/tsaaiiiii/Desktop/github_repo/TextEditor_Nuxt3/.nuxt/error-component.mjs"
     ],
     "file": "entry.c698e116.js",
     "isEntry": true,
@@ -81,7 +81,7 @@ export default {
     "file": "index.5e93df33.css",
     "resourceType": "style"
   },
-  "virtual:nuxt:/home/runner/work/TextEditor_Nuxt3/TextEditor_Nuxt3/.nuxt/error-component.mjs": {
+  "virtual:nuxt:/Users/tsaaiiiii/Desktop/github_repo/TextEditor_Nuxt3/.nuxt/error-component.mjs": {
     "resourceType": "script",
     "module": true,
     "dynamicImports": [
@@ -93,6 +93,6 @@ export default {
       "node_modules/.pnpm/nuxt@3.5.2_@types+node@18.0.0_eslint@8.42.0_less@4.1.3_sass@1.62.1_typescript@5.0.4_vue-tsc@1.6.5/node_modules/nuxt/dist/app/entry.js"
     ],
     "isDynamicEntry": true,
-    "src": "virtual:nuxt:/home/runner/work/TextEditor_Nuxt3/TextEditor_Nuxt3/.nuxt/error-component.mjs"
+    "src": "virtual:nuxt:/Users/tsaaiiiii/Desktop/github_repo/TextEditor_Nuxt3/.nuxt/error-component.mjs"
   }
 }
