@@ -18,8 +18,17 @@ jobs:
           node-version: '20.14.0'
           cache: 'pnpm'
 
-      - name: Install pnpm
-        run: npm install -g pnpm
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v2
+        with:
+          version: 8.6.12  # 指定您需要的 pnpm 版本
+
+      - name: Verify pnpm Installation
+        run: |
+          echo "pnpm version:"
+          pnpm --version
+          echo "PATH:"
+          echo $PATH
 
       - name: Install dependencies
         run: pnpm install
