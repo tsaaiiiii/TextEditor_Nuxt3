@@ -42,17 +42,18 @@ jobs:
           NODE_OPTIONS: --max-old-space-size=4096
 
       - name: Verify build
-        run: ls -la dist
+        run: ls -la .nuxt/dist
 
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@v4.3.4
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           branch: gh-pages
-          folder: dist
+          folder: .nuxt/dist
           force: true
           commit-message: website deploy
 
+
       - name: Cleanup
         if: success()
-        run: rm -rf dist
+        run: rm -rf .nuxt/dist
