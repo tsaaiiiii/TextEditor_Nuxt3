@@ -18,6 +18,9 @@ jobs:
         node-version: '20.14.0' 
         cache: 'pnpm'
 
+    - name: Install pnpm
+      run: npm install -g pnpm@8.6.12
+
     - name: Install dependencies
       run: pnpm install
 
@@ -27,14 +30,18 @@ jobs:
         DOC_ENV: production
         NODE_OPTIONS: --max-old-space-size=4096
 
+    - name: Verify build
+      run: ls -la dist
+
     - name: Deploy
       uses: JamesIves/github-pages-deploy-action@v4.3.4
       with:
-        token: ${{ secrets.ACCESS_TOKEN }}
+        token: ${{ secrets.GITHUB_TOKEN }}
         branch: gh-pages
         folder: dist
         force: true
         commit-message: website deploy
 
     - name: Cleanup
+      if: success()
       run: rm -rf dist
