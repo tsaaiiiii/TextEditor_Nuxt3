@@ -440,7 +440,7 @@ const _routes = [
     meta: {},
     alias: [],
     redirect: void 0,
-    component: () => import("./_nuxt/index-d3211f01.js").then((m) => m.default || m)
+    component: () => import("./_nuxt/index-b7f3a15d.js").then((m) => m.default || m)
   }
 ];
 const routerOptions0 = {

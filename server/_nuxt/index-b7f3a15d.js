@@ -182,7 +182,7 @@ function _sfc_ssrRender(_ctx, _push, _parent, _attrs) {
   _push(`<div${ssrRenderAttrs(mergeProps({ id: "app" }, _attrs))}><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">`);
   _push(ssrRenderComponent(_component_BannerImage, null, null, _parent));
   _push(ssrRenderComponent(_component_AppTextEditor, null, null, _parent));
-  _push(`</div>`);
+  _push(`<div>123</div></div>`);
 }
 const _sfc_setup = _sfc_main.setup;
 _sfc_main.setup = (props, ctx) => {
@@ -194,4 +194,4 @@ const index = /* @__PURE__ */ _export_sfc(_sfc_main, [["ssrRender", _sfc_ssrRend
 export {
   index as default
 };
-//# sourceMappingURL=index-d3211f01.js.map
+//# sourceMappingURL=index-b7f3a15d.js.map
