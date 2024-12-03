@@ -1,9 +1,9 @@
-name: Build and Deploy
+name: Deploy test
 
 on:
   push:
     branches:
-      - main
+      - ting
 
 jobs:
   build:
